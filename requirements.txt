@@ -1,0 +1,7 @@
+flask
+requests
+bs4
+pandas
+os
+re
+matplotlib

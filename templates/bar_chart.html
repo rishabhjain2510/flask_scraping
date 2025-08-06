@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Book Prices Chart</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+            
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+                background: linear-gradient(135deg, #f0fdfa 0%, #e6fffa 50%, #f0f9ff 100%);
+                color: #1a1a1a;
+                min-height: 100vh;
+                padding: 2rem;
+                line-height: 1.6;
+            }
+            
+            .container {
+                max-width: 1200px;
+                margin: 0 auto;
+                background: rgba(255, 255, 255, 0.8);
+                backdrop-filter: blur(10px);
+                border-radius: 16px;
+                box-shadow: 0 8px 32px rgba(31, 38, 135, 0.15);
+                border: 1px solid rgba(255, 255, 255, 0.2);
+                padding: 2rem;
+                text-align: center;
+            }
+            
+            h1 {
+                font-size: 2.5rem;
+                font-weight: 300;
+                color: #0f766e;
+                margin-bottom: 2rem;
+                text-align: center;
+                letter-spacing: -0.02em;
+            }
+            
+            .btn {
+                display: inline-block;
+                margin: 1rem 0.5rem;
+                padding: 0.75rem 1.5rem;
+                background: linear-gradient(135deg, #14b8a6 0%, #0d9488 100%);
+                color: white;
+                text-decoration: none;
+                border-radius: 12px;
+                font-weight: 500;
+                transition: all 0.3s ease;
+                box-shadow: 0 4px 16px rgba(20, 184, 166, 0.3);
+            }
+            
+            .btn:hover {
+                background: linear-gradient(135deg, #0d9488 0%, #0f766e 100%);
+                transform: translateY(-2px);
+                box-shadow: 0 8px 24px rgba(20, 184, 166, 0.4);
+            }
+            
+            .btn-secondary {
+                background: linear-gradient(135deg, #6b7280 0%, #4b5563 100%);
+                box-shadow: 0 4px 16px rgba(107, 114, 128, 0.3);
+            }
+            
+            .btn-secondary:hover {
+                background: linear-gradient(135deg, #4b5563 0%, #374151 100%);
+                box-shadow: 0 8px 24px rgba(107, 114, 128, 0.4);
+            }
+            
+            .chart-container {
+                margin: 2rem 0;
+                padding: 1rem;
+                background: white;
+                border-radius: 12px;
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+                display: inline-block;
+            }
+            
+            .chart-image {
+                max-width: 100%;
+                height: auto;
+                border-radius: 8px;
+            }
+            
+            .navigation {
+                margin-bottom: 2rem;
+            }
+            
+            @media (max-width: 768px) {
+                body {
+                    padding: 1rem;
+                }
+                
+                .container {
+                    padding: 1rem;
+                }
+                
+                h1 {
+                    font-size: 2rem;
+                }
+                
+                .btn {
+                    display: block;
+                    margin: 0.5rem 0;
+                    text-align: center;
+                }
+                
+                .navigation {
+                    margin-bottom: 1rem;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <h1>📊 Book Prices Chart</h1>
+            
+            <div class="navigation">
+                <a href="/" class="btn btn-secondary">🏠 Home</a>
+                <a href="/scrape" class="btn">📚 Back to Books Data</a>
+            </div>
+            
+            <div class="chart-container">
+                <img src="{{ chart_url }}" alt="Book Prices Bar Chart" class="chart-image">
+            </div>
+            
+            <p style="color: #6b7280; margin-top: 1rem;">
+                This chart shows the price distribution of scraped books from Books to Scrape website.
+            </p>
+        </div>
+    </body>
+</html>
