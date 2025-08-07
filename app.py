@@ -51,7 +51,7 @@ def bar_chart():
         return redirect('/scrape')
     
     plt.figure(figsize=(20, 16))
-    plt.bar(scraped_data['title'], scraped_data['price'], color='#14b8a6')
+    plt.bar(scraped_data['title'], scraped_data['price'], color='#8d9b8a')
     plt.xlabel('Books', fontsize=14)
     plt.ylabel('Price (£)', fontsize=14)
     plt.title('Book Prices')

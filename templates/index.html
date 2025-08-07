@@ -1,134 +1,222 @@
-<html>
-    <head>
-        <title>Books to Scrape</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <style>
-            * {
-                margin: 0;
-                padding: 0;
-                box-sizing: border-box;
-            }
-            
-            body {
-                font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-                background: linear-gradient(135deg, #f0fdfa 0%, #e6fffa 50%, #f0f9ff 100%);
-                color: #1a1a1a;
-                min-height: 100vh;
-                padding: 2rem;
-                line-height: 1.6;
-            }
-            
-            .container {
-                max-width: 1200px;
-                margin: 0 auto;
-                background: rgba(255, 255, 255, 0.8);
-                backdrop-filter: blur(10px);
-                border-radius: 16px;
-                box-shadow: 0 8px 32px rgba(31, 38, 135, 0.15);
-                border: 1px solid rgba(255, 255, 255, 0.2);
-                padding: 2rem;
-            }
-            
-            h1 {
-                font-size: 2.5rem;
-                font-weight: 300;
-                color: #0f766e;
-                margin-bottom: 2rem;
-                text-align: center;
-                letter-spacing: -0.02em;
-            }
-            
-            .btn {
-                display: inline-block;
-                margin-bottom: 2rem;
-                padding: 0.75rem 1.5rem;
-                background: linear-gradient(135deg, #14b8a6 0%, #0d9488 100%);
-                color: white;
-                text-decoration: none;
-                border-radius: 12px;
-                font-weight: 500;
-                transition: all 0.3s ease;
-                box-shadow: 0 4px 16px rgba(20, 184, 166, 0.3);
-            }
-            
-            .btn:hover {
-                background: linear-gradient(135deg, #0d9488 0%, #0f766e 100%);
-                transform: translateY(-2px);
-                box-shadow: 0 8px 24px rgba(20, 184, 166, 0.4);
-            }
-            
-            .table-container {
-                overflow-x: auto;
-                margin-top: 1rem;
-            }
-            
-            .table {
-                width: 100%;
-                border-collapse: collapse;
-                background: white;
-                border-radius: 8px;
-                overflow: hidden;
-                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-            }
-            
-            .table th {
-                background: #14b8a6;
-                color: white;
-                padding: 1rem;
-                text-align: left;
-                font-weight: 600;
-                font-size: 0.9rem;
-                text-transform: uppercase;
-                letter-spacing: 0.05em;
-            }
-            
-            .table td {
-                padding: 1rem;
-                border-bottom: 1px solid #e5e7eb;
-                color: #374151;
-            }
-            
-            .table tbody tr:hover {
-                background-color: #f0fdfa;
-                transition: background-color 0.2s ease;
-            }
-            
-            .table tbody tr:last-child td {
-                border-bottom: none;
-            }
-            
-            @media (max-width: 768px) {
-                body {
-                    padding: 1rem;
-                }
-                
-                .container {
-                    padding: 1rem;
-                }
-                
-                h1 {
-                    font-size: 2rem;
-                }
-                
-                .table th,
-                .table td {
-                    padding: 0.75rem 0.5rem;
-                    font-size: 0.9rem;
-                }
-            }
-        </style>
-    </head>
-    <body>
-        <div class="container">
-            <h1>Scraped Books Data</h1>
-            <div style="margin-bottom: 2rem;">
-                <a href="/" class="btn">← Back to Home</a>
-                <a href="/bar" class="btn">📊 View Bar Chart</a>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Books Data - DataFlow</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .gradient-bg { background: linear-gradient(135deg, #8d9b8a 0%, #6b7566 100%); }
+        .table-hover:hover { background-color: rgba(139, 155, 138, 0.05); }
+        .fade-in { animation: fadeIn 0.6s ease-in-out; }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body class="bg-stone-50 min-h-screen">
+    <!-- Header -->
+    <div class="gradient-bg text-white py-12">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex items-center justify-between mb-8">
+                <div class="flex items-center space-x-3">
+                    <div class="w-10 h-10 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center">
+                        <span class="text-2xl">📚</span>
+                    </div>
+                    <div>
+                        <h1 class="text-3xl md:text-4xl font-bold">Books to Scrape</h1>
+                        <p class="text-white/80">Real-time book catalog data</p>
+                    </div>
+                </div>
+                <div class="hidden md:flex items-center space-x-2 text-sm">
+                    <div class="w-3 h-3 bg-green-400 rounded-full"></div>
+                    <span>Live Data</span>
+                </div>
             </div>
-            <div class="table-container">
-                {{ books|safe }}
+            
+            <!-- Navigation Buttons -->
+            <div class="flex flex-wrap gap-3">
+                <a href="/" class="bg-white/20 backdrop-blur-sm text-white px-6 py-3 rounded-xl font-medium hover:bg-white/30 transition-all duration-300 flex items-center space-x-2">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m0 7h18"></path>
+                    </svg>
+                    <span>Back to Home</span>
+                </a>
+                <a href="/bar" class="bg-gradient-to-r from-amber-500 to-yellow-600 text-white px-6 py-3 rounded-xl font-medium hover:from-amber-600 hover:to-yellow-700 transition-all duration-300 flex items-center space-x-2">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+                    </svg>
+                    <span>View Analytics</span>
+                </a>
+                <button onclick="refreshData()" class="bg-white/20 backdrop-blur-sm text-white px-6 py-3 rounded-xl font-medium hover:bg-white/30 transition-all duration-300 flex items-center space-x-2">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path>
+                    </svg>
+                    <span>Refresh</span>
+                </button>
             </div>
         </div>
-    </body>
+    </div>
+
+    <!-- Main Content -->
+    <div class="max-w-7xl mx-auto px-6 py-8">
+        <!-- Stats Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8 fade-in">
+            <div class="bg-white rounded-2xl shadow-lg p-6">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <p class="text-stone-500 text-sm font-medium">Total Books</p>
+                        <p class="text-3xl font-bold text-stone-800" id="totalBooks">-</p>
+                    </div>
+                    <div class="w-12 h-12 bg-stone-100 rounded-xl flex items-center justify-center">
+                        <svg class="w-6 h-6 text-stone-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="bg-white rounded-2xl shadow-lg p-6">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <p class="text-stone-500 text-sm font-medium">Avg Price</p>
+                        <p class="text-3xl font-bold text-stone-800" id="avgPrice">-</p>
+                    </div>
+                    <div class="w-12 h-12 bg-amber-100 rounded-xl flex items-center justify-center">
+                        <svg class="w-6 h-6 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1"></path>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="bg-white rounded-2xl shadow-lg p-6">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <p class="text-stone-500 text-sm font-medium">In Stock</p>
+                        <p class="text-3xl font-bold text-stone-800" id="inStock">-</p>
+                    </div>
+                    <div class="w-12 h-12 rounded-xl flex items-center justify-center" style="background: linear-gradient(135deg, #c7d2cc 0%, #8d9b8a 100%);">
+                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"></path>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Data Table -->
+        <div class="bg-white rounded-2xl shadow-lg overflow-hidden fade-in">
+            <div class="px-6 py-4 border-b border-gray-200">
+                <div class="flex items-center justify-between">
+                    <h2 class="text-xl font-semibold text-stone-800">Scraped Books Data</h2>
+                    <div class="flex items-center space-x-4">
+                        <div class="relative">
+                            <input type="text" placeholder="Search books..." class="pl-10 pr-4 py-2 border border-stone-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-stone-500" id="searchInput">
+                            <svg class="w-5 h-5 text-stone-400 absolute left-3 top-2.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                            </svg>
+                        </div>
+                        <button class="bg-stone-600 text-white px-4 py-2 rounded-lg hover:bg-stone-700 transition-colors">
+                            Export CSV
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="overflow-x-auto">
+                <div id="booksTable">
+                    {{ books|safe }}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Calculate and display stats
+        function calculateStats() {
+            const table = document.querySelector('#booksTable table');
+            if (table) {
+                const rows = table.querySelectorAll('tbody tr');
+                const totalBooks = rows.length;
+                
+                let totalPrice = 0;
+                let inStockCount = 0;
+                
+                rows.forEach(row => {
+                    const cells = row.querySelectorAll('td');
+                    if (cells.length >= 3) {
+                        // Price is in the second column (index 1)
+                        const priceText = cells[1].textContent.trim();
+                        const price = parseFloat(priceText.replace(/[^\d.]/g, ''));
+                        if (!isNaN(price)) {
+                            totalPrice += price;
+                        }
+                        
+                        // Availability is in the third column (index 2)
+                        const availability = cells[2].textContent.trim().toLowerCase();
+                        if (availability.includes('in stock')) {
+                            inStockCount++;
+                        }
+                    }
+                });
+                
+                const avgPrice = totalBooks > 0 ? (totalPrice / totalBooks).toFixed(2) : 0;
+                
+                document.getElementById('totalBooks').textContent = totalBooks;
+                document.getElementById('avgPrice').textContent = '£' + avgPrice;
+                document.getElementById('inStock').textContent = inStockCount;
+            }
+        }
+        
+        // Search functionality
+        document.getElementById('searchInput').addEventListener('input', function(e) {
+            const searchTerm = e.target.value.toLowerCase();
+            const table = document.querySelector('#booksTable table');
+            if (table) {
+                const rows = table.querySelectorAll('tbody tr');
+                rows.forEach(row => {
+                    const text = row.textContent.toLowerCase();
+                    row.style.display = text.includes(searchTerm) ? '' : 'none';
+                });
+            }
+        });
+        
+        // Refresh data
+        function refreshData() {
+            window.location.reload();
+        }
+        
+        // Add hover effects to table rows
+        function addTableEffects() {
+            const table = document.querySelector('#booksTable table');
+            if (table) {
+                table.className = 'w-full';
+                const rows = table.querySelectorAll('tbody tr');
+                rows.forEach(row => {
+                    row.className = 'table-hover transition-colors duration-200 border-b border-gray-100';
+                    const cells = row.querySelectorAll('td');
+                    cells.forEach(cell => {
+                        cell.className = 'px-6 py-4 text-sm text-stone-800';
+                    });
+                });
+                
+                const headers = table.querySelectorAll('thead th');
+                headers.forEach(header => {
+                    header.className = 'px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider';
+                    header.style.background = 'linear-gradient(135deg, #8d9b8a 0%, #6b7566 100%)';
+                });
+            }
+        }
+        
+        // Initialize on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            calculateStats();
+            addTableEffects();
+        });
+    </script>
+</body>
 </html>
