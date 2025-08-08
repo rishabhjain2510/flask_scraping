@@ -8,7 +8,21 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         body { font-family: 'Inter', sans-serif; }
-        .hero-gradient { background: linear-gradient(135deg, #8d9b8a 0%, #6b7566 100%); }
+    .hero-gradient { background: linear-gradient(135deg, #8d9b8a 0%, #6b7566 100%); }
+    /* Distinct earthy gradients per project */
+    .project-books { background: linear-gradient(135deg, #6b705c 0%, #a5a58d 100%); }
+    .project-gilson { background: linear-gradient(135deg, #b08968 0%, #d8a47f 100%); }
+    .project-mouse { background: linear-gradient(135deg, #7b8d7d 0%, #b5c2a1 100%); }
+    .project-laptop { background: linear-gradient(135deg, #c98b52 0%, #6b5d4d 100%); }
+    /* Button gradients to match cards */
+    .btn-books { background: linear-gradient(135deg, #6b705c 0%, #a5a58d 100%); }
+    .btn-gilson { background: linear-gradient(135deg, #b08968 0%, #d8a47f 100%); }
+    .btn-mouse { background: linear-gradient(135deg, #7b8d7d 0%, #b5c2a1 100%); }
+    .btn-laptop { background: linear-gradient(135deg, #c98b52 0%, #6b5d4d 100%); }
+    .badge-gilson { background: #f4e1d3; color:#8a5d3b; }
+    .badge-mouse { background: #e2e9df; color:#4f614f; }
+    .badge-laptop { background: #f2dfcc; color:#8a6036; }
+    .badge-books { background: #e1e4da; color:#4d594d; }
         .card-hover { transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
         .card-hover:hover { transform: translateY(-8px) scale(1.02); }
         .fade-in { animation: fadeIn 0.6s ease-in-out; }
@@ -92,7 +106,7 @@
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
                 <!-- Books to Scrape Project -->
                 <div class="bg-white rounded-2xl shadow-xl overflow-hidden card-hover hover:shadow-2xl fade-in">
-                    <div class="h-48 bg-gradient-to-br from-stone-500 to-amber-600 relative">
+                    <div class="h-48 project-books relative">
                         <div class="absolute inset-0 bg-black/20"></div>
                         <div class="absolute top-6 left-6">
                             <div class="w-12 h-12 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center">
@@ -125,7 +139,7 @@
                             </div>
                         </div>
                         <div class="flex flex-col sm:flex-row gap-3">
-                            <a href="/scrape" class="bg-gradient-to-r from-stone-500 to-amber-600 text-white px-6 py-3 rounded-xl font-semibold hover:shadow-lg transition-all duration-300 text-center">
+                            <a href="/scrape" class="btn-books text-white px-6 py-3 rounded-xl font-semibold hover:shadow-lg transition-all duration-300 text-center">
                                 Browse Books
                             </a>
                             <a href="/bar" class="border-2 border-stone-200 text-stone-700 px-6 py-3 rounded-xl font-semibold hover:bg-stone-50 transition-all duration-300 text-center">
@@ -137,7 +151,7 @@
 
                 <!-- Gilson Pipettes Project -->
                 <div class="bg-white rounded-2xl shadow-xl overflow-hidden card-hover hover:shadow-2xl fade-in">
-                    <div class="h-48 relative" style="background: linear-gradient(135deg, #8d9b8a 0%, #6b7566 100%);">
+                    <div class="h-48 project-gilson relative">
                         <div class="absolute inset-0 bg-black/20"></div>
                         <div class="absolute top-6 left-6">
                             <div class="w-12 h-12 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center">
@@ -170,7 +184,7 @@
                             </div>
                         </div>
                         <div class="flex flex-col sm:flex-row gap-3">
-                            <a href="/gilson" class="text-white px-6 py-3 rounded-xl font-semibold hover:shadow-lg transition-all duration-300 text-center" style="background: linear-gradient(135deg, #8d9b8a 0%, #6b7566 100%);">
+                            <a href="/gilson" class="btn-gilson text-white px-6 py-3 rounded-xl font-semibold hover:shadow-lg transition-all duration-300 text-center">
                                 Browse Catalog
                             </a>
                             <a href="/export_gilson_csv" class="border-2 border-stone-200 text-stone-700 px-6 py-3 rounded-xl font-semibold hover:bg-stone-50 transition-all duration-300 text-center">
@@ -181,8 +195,8 @@
                 </div>
 
                 <!-- Gaming Mouse Project -->
-                <div class="bg-white rounded-2xl shadow-xl overflow-hidden card-hover hover:shadow-2xl fade-in border-2 border-stone-200">
-                    <div class="h-48 relative" style="background: linear-gradient(135deg, #a3b18a 0%, #8d9b8a 100%);">
+                <div class="bg-white rounded-2xl shadow-xl overflow-hidden card-hover hover:shadow-2xl fade-in">
+                    <div class="h-48 project-mouse relative">
                         <div class="absolute inset-0 bg-black/20"></div>
                         <div class="absolute top-6 left-6">
                             <div class="w-12 h-12 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center">
@@ -215,7 +229,7 @@
                             </div>
                         </div>
                         <div class="flex flex-col sm:flex-row gap-3">
-                            <a href="/gaming_mouse" class="text-white px-6 py-3 rounded-xl font-semibold hover:shadow-lg transition-all duration-300 text-center" style="background: linear-gradient(135deg, #a3b18a 0%, #8d9b8a 100%);">
+                            <a href="/gaming_mouse" class="btn-mouse text-white px-6 py-3 rounded-xl font-semibold hover:shadow-lg transition-all duration-300 text-center">
                                 Browse Collection
                             </a>
                             <a href="/export_mouse_csv" class="border-2 border-stone-200 text-stone-700 px-6 py-3 rounded-xl font-semibold hover:bg-stone-50 transition-all duration-300 text-center">
@@ -226,8 +240,8 @@
                 </div>
 
                 <!-- Gaming Laptop Project -->
-                <div class="bg-white rounded-2xl shadow-xl overflow-hidden card-hover hover:shadow-2xl fade-in border-2 border-amber-200">
-                    <div class="h-48 bg-gradient-to-br from-amber-600 to-stone-600 relative">
+                <div class="bg-white rounded-2xl shadow-xl overflow-hidden card-hover hover:shadow-2xl fade-in">
+                    <div class="h-48 project-laptop relative">
                         <div class="absolute inset-0 bg-black/20"></div>
                         <div class="absolute top-6 left-6">
                             <div class="w-12 h-12 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center">
@@ -253,17 +267,17 @@
                                 <span>Features</span>
                             </div>
                             <div class="flex flex-wrap gap-2">
-                                <span class="px-2 py-1 bg-amber-100 text-amber-700 text-xs rounded-full">Performance Data</span>
-                                <span class="px-2 py-1 bg-amber-100 text-amber-700 text-xs rounded-full">Price Analysis</span>
-                                <span class="px-2 py-1 bg-amber-100 text-amber-700 text-xs rounded-full">Ratings</span>
-                                <span class="px-2 py-1 bg-amber-100 text-amber-700 text-xs rounded-full">Comparison Tool</span>
+                                <span class="px-2 py-1 bg-stone-100 text-stone-700 text-xs rounded-full">Performance Data</span>
+                                <span class="px-2 py-1 bg-stone-100 text-stone-700 text-xs rounded-full">Price Analysis</span>
+                                <span class="px-2 py-1 bg-stone-100 text-stone-700 text-xs rounded-full">Ratings</span>
+                                <span class="px-2 py-1 bg-stone-100 text-stone-700 text-xs rounded-full">Comparison Tool</span>
                             </div>
                         </div>
                         <div class="flex flex-col sm:flex-row gap-3">
-                            <a href="/gaming_laptop" class="bg-gradient-to-r from-amber-600 to-stone-600 text-white px-6 py-3 rounded-xl font-semibold hover:shadow-lg transition-all duration-300 text-center">
+                            <a href="/gaming_laptop" class="btn-laptop text-white px-6 py-3 rounded-xl font-semibold hover:shadow-lg transition-all duration-300 text-center">
                                 Browse Laptops
                             </a>
-                            <a href="/export_laptop_csv" class="border-2 border-amber-200 text-amber-700 px-6 py-3 rounded-xl font-semibold hover:bg-amber-50 transition-all duration-300 text-center">
+                            <a href="/export_laptop_csv" class="border-2 border-stone-200 text-stone-700 px-6 py-3 rounded-xl font-semibold hover:bg-stone-50 transition-all duration-300 text-center">
                                 Export Data
                             </a>
                         </div>
