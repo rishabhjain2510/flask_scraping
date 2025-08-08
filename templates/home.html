@@ -31,8 +31,7 @@
                 <span class="text-white font-semibold text-xl">Rishabh Scraping</span>
             </div>
             <div class="hidden md:flex space-x-8 text-white/90">
-                <a href="#projects" class="hover:text-white transition-colors">Projects</a>
-                <a href="#about" class="hover:text-white transition-colors">About</a>
+                <a href="/projects" class="hover:text-white transition-colors">Projects</a>
                 <a href="#contact" class="hover:text-white transition-colors">Contact</a>
             </div>
         </div>
@@ -52,135 +51,34 @@
                 </span>
             </div>
             <h1 class="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">
-                Made Web Scraping Projects
+                Web Scraping Projects
                 <span class="bg-gradient-to-r from-amber-200 to-yellow-300 bg-clip-text text-transparent">
-                    Using Python
+                    Built with Python
                 </span>
             </h1>
             <p class="text-xl md:text-2xl text-white/80 mb-12 max-w-3xl mx-auto leading-relaxed">
-                Powerful web scraping tools to gather, analyze, and visualize data from multiple sources with elegant simplicity.
+                Powerful data extraction tools for books, scientific equipment, and gaming products. Featuring real-time visualization, analytics, and export capabilities.
             </p>
+            
+            <!-- Stats -->
+            <div class="flex justify-center items-center gap-6 mb-12">
+                <div class="bg-white/10 backdrop-blur-sm rounded-xl p-4 text-center">
+                    <div class="text-2xl md:text-3xl font-bold text-white">4</div>
+                    <div class="text-white/80 text-sm">Active Projects</div>
+                </div>
+                <div class="bg-white/10 backdrop-blur-sm rounded-xl p-4 text-center">
+                    <div class="text-2xl md:text-3xl font-bold text-white">CSV</div>
+                    <div class="text-white/80 text-sm">Export Ready</div>
+                </div>
+            </div>
+
             <div class="flex flex-col md:flex-row gap-4 justify-center items-center">
-                <a href="#projects" class="bg-white text-stone-700 px-8 py-4 rounded-xl font-semibold text-lg hover:bg-stone-50 transition-all duration-300 transform hover:scale-105 shadow-2xl">
-                    Explore Projects
+                <a href="/projects" class="bg-white text-stone-700 px-8 py-4 rounded-xl font-semibold text-lg hover:bg-stone-50 transition-all duration-300 transform hover:scale-105 shadow-2xl flex items-center space-x-2">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 9a2 2 0 00-2 2v2m0 0V9a2 2 0 012-2h14a2 2 0 012 2v2"></path>
+                    </svg>
+                    <span>View All Projects</span>
                 </a>
-                <a href="/scrape" class="border-2 border-white/30 text-white px-8 py-4 rounded-xl font-semibold text-lg hover:bg-white/10 transition-all duration-300 backdrop-blur-sm">
-                    Start Scraping
-                </a>
-            </div>
-        </div>
-        
-        <!-- Scroll indicator -->
-        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-white/60 pulse-slow">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
-            </svg>
-        </div>
-    </section>
-
-    <!-- Projects Section -->
-    <section id="projects" class="py-20 bg-stone-50">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl md:text-5xl font-bold text-stone-800 mb-4">Featured Projects</h2>
-                <p class="text-xl text-stone-600 max-w-2xl mx-auto">
-                    Discover our collection of specialized web scraping tools designed for different data sources
-                </p>
-            </div>
-
-            <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-                <!-- Books to Scrape Project -->
-                <div class="bg-white rounded-2xl shadow-xl overflow-hidden card-hover hover:shadow-2xl">
-                    <div class="h-48 bg-gradient-to-br from-stone-500 to-amber-600 relative">
-                        <div class="absolute inset-0 bg-black/20"></div>
-                        <div class="absolute top-6 left-6">
-                            <div class="w-12 h-12 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center">
-                                <span class="text-2xl">📚</span>
-                            </div>
-                        </div>
-                        <div class="absolute bottom-6 left-6 text-white">
-                            <h3 class="text-2xl font-bold mb-2">Books to Scrape</h3>
-                            <p class="text-white/80">E-commerce Data Extraction</p>
-                        </div>
-                    </div>
-                    <div class="p-8">
-                        <p class="text-stone-600 mb-6 leading-relaxed">
-                            Advanced book catalog scraper that extracts titles, prices, and availability data from online bookstores. Features real-time data visualization and export capabilities.
-                        </p>
-                        <div class="flex flex-col sm:flex-row gap-3">
-                            <a href="/scrape" class="bg-gradient-to-r from-stone-500 to-amber-600 text-white px-6 py-3 rounded-xl font-semibold hover:shadow-lg transition-all duration-300 text-center">
-                                Launch Scraper
-                            </a>
-                            <a href="/bar" class="border-2 border-stone-200 text-stone-700 px-6 py-3 rounded-xl font-semibold hover:bg-stone-50 transition-all duration-300 text-center">
-                                View Charts
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Gilson Pipettes Project -->
-                <div class="bg-white rounded-2xl shadow-xl overflow-hidden card-hover hover:shadow-2xl">
-                    <div class="h-48 bg-gradient-to-br from-sage-400 to-olive-500 relative" style="background: linear-gradient(135deg, #8d9b8a 0%, #6b7566 100%);">
-                        <div class="absolute inset-0 bg-black/20"></div>
-                        <div class="absolute top-6 left-6">
-                            <div class="w-12 h-12 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center">
-                                <span class="text-2xl">🔬</span>
-                            </div>
-                        </div>
-                        <div class="absolute bottom-6 left-6 text-white">
-                            <h3 class="text-2xl font-bold mb-2">Gilson Pipettes</h3>
-                            <p class="text-white/80">Scientific Equipment Catalog</p>
-                        </div>
-                    </div>
-                    <div class="p-8">
-                        <p class="text-stone-600 mb-6 leading-relaxed">
-                            Comprehensive laboratory equipment database featuring Gilson pipette specifications, pricing, and technical details. Perfect for research and procurement teams.
-                        </p>
-                        <div class="flex flex-col sm:flex-row gap-3">
-                            <a href="/gilson" class="text-white px-6 py-3 rounded-xl font-semibold hover:shadow-lg transition-all duration-300 text-center" style="background: linear-gradient(135deg, #8d9b8a 0%, #6b7566 100%);">
-                                Browse Catalog
-                            </a>
-                            <a href="#" class="border-2 border-stone-200 text-stone-700 px-6 py-3 rounded-xl font-semibold hover:bg-stone-50 transition-all duration-300 text-center">
-                                Export Data
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Features Section -->
-    <section class="py-20 bg-white">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="text-center p-8">
-                    <div class="w-16 h-16 bg-gradient-to-r from-stone-500 to-amber-600 rounded-2xl flex items-center justify-center mx-auto mb-6">
-                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
-                        </svg>
-                    </div>
-                    <h3 class="text-xl font-bold text-stone-800 mb-4">Lightning Fast</h3>
-                    <p class="text-stone-600">Optimized scraping algorithms ensure quick data extraction without compromising accuracy.</p>
-                </div>
-                <div class="text-center p-8">
-                    <div class="w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-6" style="background: linear-gradient(135deg, #8d9b8a 0%, #6b7566 100%);">
-                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
-                        </svg>
-                    </div>
-                    <h3 class="text-xl font-bold text-stone-800 mb-4">Smart Analytics</h3>
-                    <p class="text-stone-600">Built-in visualization tools transform raw data into meaningful insights and charts.</p>
-                </div>
-                <div class="text-center p-8">
-                    <div class="w-16 h-16 bg-gradient-to-r from-amber-500 to-yellow-600 rounded-2xl flex items-center justify-center mx-auto mb-6">
-                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
-                        </svg>
-                    </div>
-                    <h3 class="text-xl font-bold text-stone-800 mb-4">Secure & Reliable</h3>
-                    <p class="text-stone-600">Enterprise-grade security ensures your data remains protected throughout the process.</p>
-                </div>
             </div>
         </div>
     </section>
@@ -196,7 +94,7 @@
             </div>
             <p class="text-stone-400 mb-6">Empowering businesses with intelligent data extraction solutions</p>
             <div class="flex justify-center space-x-6">
-                <a href="#" class="text-stone-400 hover:text-white transition-colors">Privacy</a>
+                <a href="/projects" class="text-stone-400 hover:text-white transition-colors">Projects</a>
                 <a href="#" class="text-stone-400 hover:text-white transition-colors">Terms</a>
                 <a href="#" class="text-stone-400 hover:text-white transition-colors">Support</a>
             </div>

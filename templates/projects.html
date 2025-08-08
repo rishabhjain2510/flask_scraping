@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Projects - DataFlow</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .hero-gradient { background: linear-gradient(135deg, #8d9b8a 0%, #6b7566 100%); }
+        .card-hover { transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
+        .card-hover:hover { transform: translateY(-8px) scale(1.02); }
+        .fade-in { animation: fadeIn 0.6s ease-in-out; }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .bg-mesh { background-image: radial-gradient(circle at 25% 25%, #f5f2e8 0%, transparent 50%), radial-gradient(circle at 75% 75%, #e6e2d7 0%, transparent 50%); }
+    </style>
+</head>
+<body class="bg-mesh min-h-screen">
+    <!-- Header -->
+    <div class="hero-gradient text-white py-12">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex items-center justify-between mb-8">
+                <div class="flex items-center space-x-3">
+                    <div class="w-12 h-12 bg-white/20 backdrop-blur-sm rounded-2xl flex items-center justify-center">
+                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 9a2 2 0 00-2 2v2m0 0V9a2 2 0 012-2h14a2 2 0 012 2v2"></path>
+                        </svg>
+                    </div>
+                    <div>
+                        <h1 class="text-3xl md:text-4xl font-bold">All Projects</h1>
+                        <p class="text-white/80">Complete collection of web scraping projects</p>
+                    </div>
+                </div>
+                <div class="hidden md:flex items-center space-x-2 text-sm">
+                    <div class="w-3 h-3 bg-amber-400 rounded-full animate-pulse"></div>
+                    <span>4 Active Projects</span>
+                </div>
+            </div>
+            
+            <!-- Navigation -->
+            <div class="flex flex-wrap gap-3">
+                <a href="/" class="bg-white/20 backdrop-blur-sm text-white px-6 py-3 rounded-xl font-medium hover:bg-white/30 transition-all duration-300 flex items-center space-x-2">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
+                    </svg>
+                    <span>Home</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Projects Grid -->
+    <section class="py-16 bg-stone-50">
+        <div class="max-w-7xl mx-auto px-6">
+            <!-- Stats Overview -->
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-12 fade-in">
+                <div class="bg-white rounded-xl shadow-lg p-6 text-center">
+                    <div class="w-12 h-12 bg-stone-100 rounded-xl flex items-center justify-center mx-auto mb-3">
+                        <span class="text-2xl">📚</span>
+                    </div>
+                    <h3 class="text-lg font-semibold text-stone-800">Books</h3>
+                    <p class="text-stone-600 text-sm">E-commerce scraper</p>
+                </div>
+                <div class="bg-white rounded-xl shadow-lg p-6 text-center">
+                    <div class="w-12 h-12 bg-stone-100 rounded-xl flex items-center justify-center mx-auto mb-3">
+                        <span class="text-2xl">🔬</span>
+                    </div>
+                    <h3 class="text-lg font-semibold text-stone-800">Pipettes</h3>
+                    <p class="text-stone-600 text-sm">Scientific equipment</p>
+                </div>
+                <div class="bg-white rounded-xl shadow-lg p-6 text-center">
+                    <div class="w-12 h-12 bg-stone-100 rounded-xl flex items-center justify-center mx-auto mb-3">
+                        <span class="text-2xl">🖱️</span>
+                    </div>
+                    <h3 class="text-lg font-semibold text-stone-800">Gaming Mouse</h3>
+                    <p class="text-stone-600 text-sm">Peripherals catalog</p>
+                </div>
+                <div class="bg-white rounded-xl shadow-lg p-6 text-center">
+                    <div class="w-12 h-12 bg-stone-100 rounded-xl flex items-center justify-center mx-auto mb-3">
+                        <span class="text-2xl">💻</span>
+                    </div>
+                    <h3 class="text-lg font-semibold text-stone-800">Gaming Laptops</h3>
+                    <p class="text-stone-600 text-sm">Performance machines</p>
+                </div>
+            </div>
+
+            <!-- Projects Cards -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+                <!-- Books to Scrape Project -->
+                <div class="bg-white rounded-2xl shadow-xl overflow-hidden card-hover hover:shadow-2xl fade-in">
+                    <div class="h-48 bg-gradient-to-br from-stone-500 to-amber-600 relative">
+                        <div class="absolute inset-0 bg-black/20"></div>
+                        <div class="absolute top-6 left-6">
+                            <div class="w-12 h-12 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center">
+                                <span class="text-2xl">📚</span>
+                            </div>
+                        </div>
+                        <div class="absolute bottom-6 left-6 text-white">
+                            <h3 class="text-2xl font-bold mb-2">Books to Scrape</h3>
+                            <p class="text-white/80">E-commerce Data Extraction</p>
+                        </div>
+                        <div class="absolute top-6 right-6">
+                            <span class="bg-white/20 backdrop-blur-sm px-3 py-1 rounded-full text-white text-sm font-medium">
+                                Active
+                            </span>
+                        </div>
+                    </div>
+                    <div class="p-8">
+                        <p class="text-stone-600 mb-6 leading-relaxed">
+                            Advanced book catalog scraper that extracts titles, prices, and availability data from online bookstores. Features real-time data visualization and export capabilities.
+                        </p>
+                        <div class="mb-4">
+                            <div class="flex items-center justify-between text-sm text-stone-500 mb-2">
+                                <span>Features</span>
+                            </div>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-2 py-1 bg-stone-100 text-stone-700 text-xs rounded-full">Web Scraping</span>
+                                <span class="px-2 py-1 bg-stone-100 text-stone-700 text-xs rounded-full">Data Visualization</span>
+                                <span class="px-2 py-1 bg-stone-100 text-stone-700 text-xs rounded-full">CSV Export</span>
+                                <span class="px-2 py-1 bg-stone-100 text-stone-700 text-xs rounded-full">Charts</span>
+                            </div>
+                        </div>
+                        <div class="flex flex-col sm:flex-row gap-3">
+                            <a href="/scrape" class="bg-gradient-to-r from-stone-500 to-amber-600 text-white px-6 py-3 rounded-xl font-semibold hover:shadow-lg transition-all duration-300 text-center">
+                                Browse Books
+                            </a>
+                            <a href="/bar" class="border-2 border-stone-200 text-stone-700 px-6 py-3 rounded-xl font-semibold hover:bg-stone-50 transition-all duration-300 text-center">
+                                View Charts
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Gilson Pipettes Project -->
+                <div class="bg-white rounded-2xl shadow-xl overflow-hidden card-hover hover:shadow-2xl fade-in">
+                    <div class="h-48 relative" style="background: linear-gradient(135deg, #8d9b8a 0%, #6b7566 100%);">
+                        <div class="absolute inset-0 bg-black/20"></div>
+                        <div class="absolute top-6 left-6">
+                            <div class="w-12 h-12 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center">
+                                <span class="text-2xl">🔬</span>
+                            </div>
+                        </div>
+                        <div class="absolute bottom-6 left-6 text-white">
+                            <h3 class="text-2xl font-bold mb-2">Gilson Pipettes</h3>
+                            <p class="text-white/80">Scientific Equipment Catalog</p>
+                        </div>
+                        <div class="absolute top-6 right-6">
+                            <span class="bg-white/20 backdrop-blur-sm px-3 py-1 rounded-full text-white text-sm font-medium">
+                                Active
+                            </span>
+                        </div>
+                    </div>
+                    <div class="p-8">
+                        <p class="text-stone-600 mb-6 leading-relaxed">
+                            Comprehensive laboratory equipment database featuring Gilson pipette specifications, pricing, and technical details. Perfect for research and procurement teams.
+                        </p>
+                        <div class="mb-4">
+                            <div class="flex items-center justify-between text-sm text-stone-500 mb-2">
+                                <span>Features</span>
+                            </div>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-2 py-1 bg-stone-100 text-stone-700 text-xs rounded-full">Product Catalog</span>
+                                <span class="px-2 py-1 bg-stone-100 text-stone-700 text-xs rounded-full">Price Tracking</span>
+                                <span class="px-2 py-1 bg-stone-100 text-stone-700 text-xs rounded-full">CSV Export</span>
+                                <span class="px-2 py-1 bg-stone-100 text-stone-700 text-xs rounded-full">Specifications</span>
+                            </div>
+                        </div>
+                        <div class="flex flex-col sm:flex-row gap-3">
+                            <a href="/gilson" class="text-white px-6 py-3 rounded-xl font-semibold hover:shadow-lg transition-all duration-300 text-center" style="background: linear-gradient(135deg, #8d9b8a 0%, #6b7566 100%);">
+                                Browse Catalog
+                            </a>
+                            <a href="/export_gilson_csv" class="border-2 border-stone-200 text-stone-700 px-6 py-3 rounded-xl font-semibold hover:bg-stone-50 transition-all duration-300 text-center">
+                                Export Data
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Gaming Mouse Project -->
+                <div class="bg-white rounded-2xl shadow-xl overflow-hidden card-hover hover:shadow-2xl fade-in border-2 border-stone-200">
+                    <div class="h-48 relative" style="background: linear-gradient(135deg, #a3b18a 0%, #8d9b8a 100%);">
+                        <div class="absolute inset-0 bg-black/20"></div>
+                        <div class="absolute top-6 left-6">
+                            <div class="w-12 h-12 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center">
+                                <span class="text-2xl">🖱️</span>
+                            </div>
+                        </div>
+                        <div class="absolute bottom-6 left-6 text-white">
+                            <h3 class="text-2xl font-bold mb-2">Gaming Mouse Collection</h3>
+                            <p class="text-white/80">Gaming Peripherals Catalog</p>
+                        </div>
+                        <div class="absolute top-6 right-6">
+                            <span class="bg-white/20 backdrop-blur-sm px-3 py-1 rounded-full text-white text-sm font-medium">
+                                Active
+                            </span>
+                        </div>
+                    </div>
+                    <div class="p-8">
+                        <p class="text-stone-600 mb-6 leading-relaxed">
+                            Premium gaming mouse collection featuring detailed specifications, pricing, and features. From budget-friendly to professional esports gear.
+                        </p>
+                        <div class="mb-4">
+                            <div class="flex items-center justify-between text-sm text-stone-500 mb-2">
+                                <span>Features</span>
+                            </div>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-2 py-1 bg-stone-100 text-stone-700 text-xs rounded-full">Gaming Gear</span>
+                                <span class="px-2 py-1 bg-stone-100 text-stone-700 text-xs rounded-full">Price Comparison</span>
+                                <span class="px-2 py-1 bg-stone-100 text-stone-700 text-xs rounded-full">Specifications</span>
+                                <span class="px-2 py-1 bg-stone-100 text-stone-700 text-xs rounded-full">Search & Filter</span>
+                            </div>
+                        </div>
+                        <div class="flex flex-col sm:flex-row gap-3">
+                            <a href="/gaming_mouse" class="text-white px-6 py-3 rounded-xl font-semibold hover:shadow-lg transition-all duration-300 text-center" style="background: linear-gradient(135deg, #a3b18a 0%, #8d9b8a 100%);">
+                                Browse Collection
+                            </a>
+                            <a href="/export_mouse_csv" class="border-2 border-stone-200 text-stone-700 px-6 py-3 rounded-xl font-semibold hover:bg-stone-50 transition-all duration-300 text-center">
+                                Export Data
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Gaming Laptop Project -->
+                <div class="bg-white rounded-2xl shadow-xl overflow-hidden card-hover hover:shadow-2xl fade-in border-2 border-amber-200">
+                    <div class="h-48 bg-gradient-to-br from-amber-600 to-stone-600 relative">
+                        <div class="absolute inset-0 bg-black/20"></div>
+                        <div class="absolute top-6 left-6">
+                            <div class="w-12 h-12 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center">
+                                <span class="text-2xl">💻</span>
+                            </div>
+                        </div>
+                        <div class="absolute bottom-6 left-6 text-white">
+                            <h3 class="text-2xl font-bold mb-2">Gaming Laptops Collection</h3>
+                            <p class="text-white/80">High-Performance Gaming Machines</p>
+                        </div>
+                        <div class="absolute top-6 right-6">
+                            <span class="bg-white/20 backdrop-blur-sm px-3 py-1 rounded-full text-white text-sm font-medium">
+                                Active
+                            </span>
+                        </div>
+                    </div>
+                    <div class="p-8">
+                        <p class="text-stone-600 mb-6 leading-relaxed">
+                            Comprehensive gaming laptop database with detailed specifications, pricing comparisons, ratings, and performance metrics for serious gamers.
+                        </p>
+                        <div class="mb-4">
+                            <div class="flex items-center justify-between text-sm text-stone-500 mb-2">
+                                <span>Features</span>
+                            </div>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-2 py-1 bg-amber-100 text-amber-700 text-xs rounded-full">Performance Data</span>
+                                <span class="px-2 py-1 bg-amber-100 text-amber-700 text-xs rounded-full">Price Analysis</span>
+                                <span class="px-2 py-1 bg-amber-100 text-amber-700 text-xs rounded-full">Ratings</span>
+                                <span class="px-2 py-1 bg-amber-100 text-amber-700 text-xs rounded-full">Comparison Tool</span>
+                            </div>
+                        </div>
+                        <div class="flex flex-col sm:flex-row gap-3">
+                            <a href="/gaming_laptop" class="bg-gradient-to-r from-amber-600 to-stone-600 text-white px-6 py-3 rounded-xl font-semibold hover:shadow-lg transition-all duration-300 text-center">
+                                Browse Laptops
+                            </a>
+                            <a href="/export_laptop_csv" class="border-2 border-amber-200 text-amber-700 px-6 py-3 rounded-xl font-semibold hover:bg-amber-50 transition-all duration-300 text-center">
+                                Export Data
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-stone-800 text-white py-12">
+        <div class="max-w-7xl mx-auto px-6 text-center">
+            <div class="flex items-center justify-center space-x-2 mb-4">
+                <div class="w-8 h-8 bg-gradient-to-r from-stone-600 to-amber-700 rounded-lg flex items-center justify-center">
+                    <span class="text-white font-bold text-sm">RS</span>
+                </div>
+                <span class="font-semibold text-xl">Rishabh Scraping</span>
+            </div>
+            <p class="text-stone-400 mb-6">Empowering businesses with intelligent data extraction solutions</p>
+            <div class="flex justify-center space-x-6">
+                <a href="/" class="text-stone-400 hover:text-white transition-colors">Home</a>
+                <a href="/projects" class="text-stone-400 hover:text-white transition-colors">Projects</a>
+                <a href="#" class="text-stone-400 hover:text-white transition-colors">Contact</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Add entrance animations with staggered delays
+        document.addEventListener('DOMContentLoaded', function() {
+            const elements = document.querySelectorAll('.fade-in');
+            elements.forEach((el, index) => {
+                el.style.animationDelay = `${index * 0.1}s`;
+            });
+        });
+    </script>
+</body>
+</html>

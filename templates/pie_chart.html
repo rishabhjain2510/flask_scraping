@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Analytics Dashboard - DataFlow</title>
+    <title>Availability Analysis - DataFlow</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
@@ -33,17 +33,18 @@
                 <div class="flex items-center space-x-3">
                     <div class="w-12 h-12 bg-white/20 backdrop-blur-sm rounded-2xl flex items-center justify-center">
                         <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 3.055A9.001 9.001 0 1020.945 13H11V3.055z"></path>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.488 9H15V3.512A9.025 9.025 0 0120.488 9z"></path>
                         </svg>
                     </div>
                     <div>
-                        <h1 class="text-3xl md:text-4xl font-bold">Analytics Dashboard</h1>
-                        <p class="text-white/80">Book price distribution analysis</p>
+                        <h1 class="text-3xl md:text-4xl font-bold">Availability Analysis</h1>
+                        <p class="text-white/80">Book stock distribution insights</p>
                     </div>
                 </div>
                 <div class="hidden md:flex items-center space-x-2 text-sm">
                     <div class="w-3 h-3 bg-amber-400 rounded-full pulse-subtle"></div>
-                    <span>Live Chart</span>
+                    <span>Live Data</span>
                 </div>
             </div>
             
@@ -61,12 +62,11 @@
                     </svg>
                     <span>Back to Data</span>
                 </a>
-                <a href="/pie" class="bg-white/20 backdrop-blur-sm text-white px-6 py-3 rounded-xl font-medium hover:bg-white/30 transition-all duration-300 flex items-center space-x-2">
+                <a href="/bar" class="bg-white/20 backdrop-blur-sm text-white px-6 py-3 rounded-xl font-medium hover:bg-white/30 transition-all duration-300 flex items-center space-x-2">
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 3.055A9.001 9.001 0 1020.945 13H11V3.055z"></path>
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.488 9H15V3.512A9.025 9.025 0 0120.488 9z"></path>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
                     </svg>
-                    <span>Availability Chart</span>
+                    <span>Bar Chart</span>
                 </a>
                 <button onclick="downloadChart()" class="bg-gradient-to-r from-amber-500 to-yellow-600 text-white px-6 py-3 rounded-xl font-medium hover:from-amber-600 hover:to-yellow-700 transition-all duration-300 flex items-center space-x-2">
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -87,16 +87,30 @@
     <!-- Main Content -->
     <div class="max-w-7xl mx-auto px-6 py-8">
         <!-- Analytics Overview -->
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8 fade-in">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8 fade-in">
             <div class="bg-white rounded-2xl shadow-lg p-6">
                 <div class="flex items-center justify-between">
                     <div>
-                        <p class="text-stone-500 text-sm font-medium">Highest Price</p>
-                        <p class="text-2xl font-bold text-red-600">£55.99</p>
+                        <p class="text-stone-500 text-sm font-medium">In Stock</p>
+                        <p class="text-3xl font-bold text-emerald-600" id="inStockCount">-</p>
+                    </div>
+                    <div class="w-12 h-12 bg-emerald-100 rounded-xl flex items-center justify-center">
+                        <svg class="w-6 h-6 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="bg-white rounded-2xl shadow-lg p-6">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <p class="text-stone-500 text-sm font-medium">Out of Stock</p>
+                        <p class="text-3xl font-bold text-red-600" id="outOfStockCount">-</p>
                     </div>
                     <div class="w-12 h-12 bg-red-100 rounded-xl flex items-center justify-center">
                         <svg class="w-6 h-6 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                         </svg>
                     </div>
                 </div>
@@ -105,40 +119,12 @@
             <div class="bg-white rounded-2xl shadow-lg p-6">
                 <div class="flex items-center justify-between">
                     <div>
-                        <p class="text-stone-500 text-sm font-medium">Lowest Price</p>
-                        <p class="text-2xl font-bold text-stone-600">£10.00</p>
-                    </div>
-                    <div class="w-12 h-12 bg-stone-100 rounded-xl flex items-center justify-center">
-                        <svg class="w-6 h-6 text-stone-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 17h8m0 0V9m0 8l-8-8-4 4-6-6"></path>
-                        </svg>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="bg-white rounded-2xl shadow-lg p-6">
-                <div class="flex items-center justify-between">
-                    <div>
-                        <p class="text-stone-500 text-sm font-medium">Price Range</p>
-                        <p class="text-2xl font-bold text-amber-600">£45.99</p>
+                        <p class="text-stone-500 text-sm font-medium">Availability Rate</p>
+                        <p class="text-3xl font-bold text-amber-600" id="availabilityRate">-</p>
                     </div>
                     <div class="w-12 h-12 bg-amber-100 rounded-xl flex items-center justify-center">
                         <svg class="w-6 h-6 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 12l3-3 3 3 4-4M8 21l4-4 4 4M3 4h18M4 4h16v12a1 1 0 01-1 1H5a1 1 0 01-1-1V4z"></path>
-                        </svg>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="bg-white rounded-2xl shadow-lg p-6">
-                <div class="flex items-center justify-between">
-                    <div>
-                        <p class="text-stone-500 text-sm font-medium">Data Points</p>
-                        <p class="text-2xl font-bold" style="color: #8d9b8a;">20</p>
-                    </div>
-                    <div class="w-12 h-12 rounded-xl flex items-center justify-center" style="background: linear-gradient(135deg, #c7d2cc 0%, #8d9b8a 100%);">
-                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
                         </svg>
                     </div>
                 </div>
@@ -150,18 +136,18 @@
             <div class="px-8 py-6 border-b border-gray-200">
                 <div class="flex items-center justify-between">
                     <div>
-                        <h2 class="text-2xl font-bold text-stone-800">Book Price Distribution</h2>
-                        <p class="text-stone-600 mt-1">Comprehensive price analysis of scraped book data</p>
+                        <h2 class="text-2xl font-bold text-stone-800">Book Availability Distribution</h2>
+                        <p class="text-stone-600 mt-1">Visual breakdown of stock status across the catalog</p>
                     </div>
                     <div class="flex items-center space-x-4">
                         <div class="flex items-center space-x-2">
                             <div class="w-4 h-4 rounded" style="background: linear-gradient(135deg, #8d9b8a 0%, #6b7566 100%);"></div>
-                            <span class="text-sm text-stone-600">Book Prices (£)</span>
+                            <span class="text-sm text-stone-600">Availability Status</span>
                         </div>
                         <select class="border border-stone-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-stone-500">
-                            <option>Price (£)</option>
                             <option>Availability</option>
-                            <option>Category</option>
+                            <option>Stock Status</option>
+                            <option>Distribution</option>
                         </select>
                     </div>
                 </div>
@@ -169,8 +155,8 @@
             
             <div class="p-8">
                 <div class="chart-container rounded-2xl p-6 flex justify-center items-center min-h-[600px]">
-                    <div class="w-full max-w-6xl">
-                        <img src="{{ chart_url }}" alt="Book Prices Bar Chart" class="w-full h-auto rounded-xl shadow-lg">
+                    <div class="w-full max-w-4xl">
+                        <img src="{{ chart_url }}" alt="Book Availability Pie Chart" class="w-full h-auto rounded-xl shadow-lg">
                     </div>
                 </div>
             </div>
@@ -183,20 +169,20 @@
                     <svg class="w-5 h-5 text-amber-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
                     </svg>
-                    Key Insights
+                    Availability Insights
                 </h3>
                 <div class="space-y-4">
+                    <div class="flex items-center p-3 bg-emerald-50 rounded-xl">
+                        <div class="w-2 h-2 bg-emerald-600 rounded-full mr-3"></div>
+                        <span class="text-stone-700">Most books are currently available in stock</span>
+                    </div>
                     <div class="flex items-center p-3 bg-stone-50 rounded-xl">
                         <div class="w-2 h-2 bg-stone-600 rounded-full mr-3"></div>
-                        <span class="text-stone-700">Most books are priced between £15-£35</span>
+                        <span class="text-stone-700">Stock levels vary across different categories</span>
                     </div>
                     <div class="flex items-center p-3 bg-amber-50 rounded-xl">
                         <div class="w-2 h-2 bg-amber-600 rounded-full mr-3"></div>
-                        <span class="text-stone-700">Price distribution shows healthy market variety</span>
-                    </div>
-                    <div class="flex items-center p-3 rounded-xl" style="background: rgba(139, 155, 138, 0.1);">
-                        <div class="w-2 h-2 rounded-full mr-3" style="background: #8d9b8a;"></div>
-                        <span class="text-stone-700">Premium books (£50+) represent niche categories</span>
+                        <span class="text-stone-700">Regular restocking maintains good availability</span>
                     </div>
                 </div>
             </div>
@@ -219,7 +205,11 @@
                     </div>
                     <div class="border-l-4 pl-4 py-2" style="border-color: #8d9b8a;">
                         <p class="font-medium text-stone-800">Chart Type</p>
-                        <p class="text-stone-600 text-sm">Bar Chart - Price Distribution</p>
+                        <p class="text-stone-600 text-sm">Pie Chart - Availability Distribution</p>
+                    </div>
+                    <div class="border-l-4 border-emerald-500 pl-4 py-2">
+                        <p class="font-medium text-stone-800">Purpose</p>
+                        <p class="text-stone-600 text-sm">Stock management & inventory analysis</p>
                     </div>
                 </div>
             </div>
@@ -230,7 +220,7 @@
         function downloadChart() {
             const link = document.createElement('a');
             link.href = '{{ chart_url }}';
-            link.download = 'book-prices-chart.png';
+            link.download = 'book-availability-pie-chart.png';
             document.body.appendChild(link);
             link.click();
             document.body.removeChild(link);
@@ -240,8 +230,18 @@
             window.location.reload();
         }
         
-        // Add smooth scrolling
+        // Simulate availability stats (in a real app, this would come from the backend)
+        function updateStats() {
+            // These would be calculated from actual data
+            document.getElementById('inStockCount').textContent = '18';
+            document.getElementById('outOfStockCount').textContent = '2';
+            document.getElementById('availabilityRate').textContent = '90%';
+        }
+        
+        // Add smooth scrolling and entrance animations
         document.addEventListener('DOMContentLoaded', function() {
+            updateStats();
+            
             // Add entrance animations with delay
             const elements = document.querySelectorAll('.fade-in');
             elements.forEach((el, index) => {
